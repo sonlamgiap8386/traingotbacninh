@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { COMMUNITY_POSTS, FARMER_ACCOUNTS } from '../data/mockData';
 import { CommunityPost, FarmerAccount } from '../types/agriculture';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 interface CommunityTabProps {
   currentFarmer?: FarmerAccount;
@@ -152,7 +153,7 @@ export const CommunityTab: React.FC<CommunityTabProps> = ({ currentFarmer }) => 
       },
       timeAgo: 'Vừa xong',
       content: newPostText.trim(),
-      images: newPostImage ? [newPostImage] : ['/assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg'],
+      images: newPostImage ? [newPostImage] : [publicAssetUrl('assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg')],
       likes: 1,
       hasLiked: true,
       commentsCount: 0,

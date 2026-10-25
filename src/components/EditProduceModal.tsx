@@ -15,6 +15,7 @@ import {
 import confetti from 'canvas-confetti';
 import { ProduceItem, FarmerAccount } from '../types/agriculture';
 import { FruitLogo } from './FruitLogo';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 interface EditProduceModalProps {
   isOpen: boolean;
@@ -32,11 +33,11 @@ export const EditProduceModal: React.FC<EditProduceModalProps> = ({
   currentFarmer,
 }) => {
   const sampleFruitImages = [
-    { label: 'Vải thiều Chũ', src: '/assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg' },
-    { label: 'Cam đường Canh', src: '/assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg' },
-    { label: 'Bưởi Diễn', src: '/assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg' },
-    { label: 'Táo xuân', src: '/assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg' },
-    { label: 'Ổi lê Chũ', src: '/assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg' },
+    { label: 'Vải thiều Chũ', src: publicAssetUrl('assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg') },
+    { label: 'Cam đường Canh', src: publicAssetUrl('assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg') },
+    { label: 'Bưởi Diễn', src: publicAssetUrl('assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg') },
+    { label: 'Táo xuân', src: publicAssetUrl('assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg') },
+    { label: 'Ổi lê Chũ', src: publicAssetUrl('assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg') },
   ];
 
   const [name, setName] = useState<string>('');

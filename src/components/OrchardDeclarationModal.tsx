@@ -13,6 +13,7 @@ import {
   Upload,
 } from 'lucide-react';
 import { FarmerAccount } from '../types/agriculture';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 interface OrchardDeclarationModalProps {
   isOpen: boolean;
@@ -52,7 +53,7 @@ export const OrchardDeclarationModal: React.FC<OrchardDeclarationModalProps> = (
 
   const [previewAvatar, setPreviewAvatar] = useState<string>(currentFarmer.avatar);
   const [orchardPhoto, setOrchardPhoto] = useState<string>(
-    '/assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg'
+    publicAssetUrl('assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg')
   );
   const [isSaved, setIsSaved] = useState<boolean>(false);
 

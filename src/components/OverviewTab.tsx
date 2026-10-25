@@ -27,6 +27,7 @@ import { ActiveTab, ProduceItem, FarmerAccount } from '../types/agriculture';
 import { PRODUCE_ITEMS, CALENDAR_TASKS, FARMER_ACCOUNTS } from '../data/mockData';
 import { getSynchronizedTasksForFarmer } from '../utils/cultivationSync';
 import { LycheeLogo } from './LycheeLogo';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 interface OverviewTabProps {
   setActiveTab: (tab: ActiveTab) => void;
@@ -223,7 +224,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
         {/* Right side fruit image */}
         <div className="absolute right-0 bottom-0 top-0 w-1/3 opacity-20 pointer-events-none hidden lg:block">
           <img
-            src="/assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg"
+            src={publicAssetUrl('assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg')}
             alt="Vải thiều Chũ, TP. Bắc Ninh"
             className="w-full h-full object-cover mix-blend-overlay filter blur-sm"
           />

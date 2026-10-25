@@ -49,6 +49,18 @@ Mở `http://localhost:3000`. Nếu không có `GEMINI_API_KEY`, các endpoint A
 
 Không đưa `.env.local` hoặc API key vào Git.
 
+### Triển khai GitHub Pages
+
+Repository này là project site GitHub Pages nên bản build dùng tiền tố `/traingotbacninh/`. Hãy triển khai **nội dung thư mục `dist/`** sau khi chạy:
+
+```powershell
+npm run build
+```
+
+Không thay `vite.config.ts` bằng cấu hình rút gọn chỉ có React: dự án cần plugin Tailwind để giao diện được biên dịch đúng. Các ảnh đặt trong `public/assets` cũng đã được tạo URL tương thích với GitHub Pages.
+
+GitHub Pages chỉ phục vụ tệp tĩnh. Các API `/api/chat` và `/api/diagnosis` cần một backend riêng nếu muốn gọi Gemini trên môi trường production; nếu không, ứng dụng tự chuyển sang nội dung fallback cục bộ khi request thất bại.
+
 ## Lệnh dự án
 
 | Lệnh | Mục đích |

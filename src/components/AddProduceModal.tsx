@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { ProduceItem, FarmerAccount } from '../types/agriculture';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 interface AddProduceModalProps {
   isOpen: boolean;
@@ -28,11 +29,11 @@ export const AddProduceModal: React.FC<AddProduceModalProps> = ({
   onAddProduce,
 }) => {
   const sampleFruitImages: Array<{ label: string; src: string; category: ProduceItem['category'] }> = [
-    { label: 'Vải thiều Chũ', src: '/assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg', category: 'lychee' },
-    { label: 'Cam Canh', src: '/assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg', category: 'orange' },
-    { label: 'Bưởi Diễn', src: '/assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg', category: 'pomelo' },
-    { label: 'Táo xuân', src: '/assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg', category: 'apple' },
-    { label: 'Ổi lê Chũ', src: '/assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg', category: 'guava' },
+    { label: 'Vải thiều Chũ', src: publicAssetUrl('assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg'), category: 'lychee' },
+    { label: 'Cam Canh', src: publicAssetUrl('assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg'), category: 'orange' },
+    { label: 'Bưởi Diễn', src: publicAssetUrl('assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg'), category: 'pomelo' },
+    { label: 'Táo xuân', src: publicAssetUrl('assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg'), category: 'apple' },
+    { label: 'Ổi lê Chũ', src: publicAssetUrl('assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg'), category: 'guava' },
   ];
 
   const [name, setName] = useState<string>('Vải thiều Chũ - Vườn ' + currentFarmer.name);

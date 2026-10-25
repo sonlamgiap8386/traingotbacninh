@@ -7,6 +7,7 @@ import tranVanHungAvatar from '../../ANH/tran-van-hung.jpg';
 import hoangThiMuiAvatar from '../../ANH/hoang-thi-mui.jpg';
 import nongVanThangAvatar from '../../ANH/nong-van-thang.jpg';
 import hoangThiDuyenAvatar from '../../ANH/hoang-thi-duyen.jpg';
+import { publicAssetUrl } from '../utils/assetUrl';
 
 export const FARMER_ACCOUNTS: FarmerAccount[] = [
   {
@@ -465,7 +466,7 @@ export const PRODUCE_ITEMS: ProduceItem[] = [
     rating: 4.75,
     reviewCount: 64,
     inStock: 900,
-    image: '/assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg',
+    image: publicAssetUrl('assets/aistudio/tao_xuan_dailoan_1791794902514_30247698.jpg'),
     certifications: ['VietGAP'],
     harvestSeason: 'Tháng 12 - Tháng 3 hàng năm',
     sweetnessBrix: 12.8,
@@ -557,7 +558,7 @@ export const PRODUCE_ITEMS: ProduceItem[] = [
     rating: 4.8,
     reviewCount: 76,
     inStock: 1400,
-    image: '/assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg',
+    image: publicAssetUrl('assets/aistudio/oi_le_chu_1791794939350_2428c961.jpg'),
     certifications: ['VietGAP', 'Hữu cơ'],
     harvestSeason: 'Thu hoạch 4 mùa quanh năm',
     sweetnessBrix: 11.2,
@@ -809,7 +810,7 @@ export const COMMUNITY_POSTS: CommunityPost[] = [
     },
     timeAgo: '2 giờ trước',
     content: 'Kinh nghiệm cho bà con vùng Hồng Giang và Quý Sơn đợt này: Thời tiết đang có gió heo may se lạnh, chênh lệch nhiệt độ ngày đêm cao, rất thích hợp để cây vải thiều vào giai đoạn tích lũy đường bột chuẩn bị ra hoa. Bà con nhớ dọn sạch cỏ quanh gốc, kiểm tra độ ẩm đất giữ mức 60-65%, không nên tưới đẫm nước kẻo cây bật lộc đông nhé!',
-    images: ['/assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg'],
+    images: [publicAssetUrl('assets/aistudio/vai_thieu_chu_1791794876673_8ae22a2e.jpg')],
     likes: 42,
     hasLiked: true,
     commentsCount: 6,
@@ -844,7 +845,10 @@ export const COMMUNITY_POSTS: CommunityPost[] = [
     },
     timeAgo: '5 giờ trước',
     content: 'Cập nhật giá sỉ cam Canh và bưởi Diễn tại chợ đầu mối Chũ sáng nay: Cam Canh loại 1 đẹp mã thu mua tại vườn dao động 48.000 - 55.000đ/kg. Bưởi Diễn cây cổ thụ 35.000 - 45.000đ/quả. Thương lái các tỉnh Hà Nội, Hải Phòng đã bắt đầu về đặt cọc vườn sớm!',
-    images: ['/assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg', '/assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg'],
+    images: [
+      publicAssetUrl('assets/aistudio/cam_duong_canh_1791794891255_d0cb0660.jpg'),
+      publicAssetUrl('assets/aistudio/buoi_dien_chu_1791794953100_e11caabd.jpg'),
+    ],
     likes: 67,
     hasLiked: false,
     commentsCount: 9,
