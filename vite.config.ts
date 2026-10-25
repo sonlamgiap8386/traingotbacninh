@@ -8,8 +8,11 @@ const currentDir = typeof import.meta.dirname !== 'undefined'
   ? import.meta.dirname 
   : path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   return {
+    // GitHub Pages serves a project site from /<repository>/ rather than the
+    // domain root. Keep `/` in development so local URLs remain unchanged.
+    base: command === 'build' ? '/traingotbacninh/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
