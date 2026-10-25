@@ -4,47 +4,33 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 
-const currentDir = typeof import.meta.dirname !== 'undefined' 
-  ? import.meta.dirname 
-  : path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export default defineConfig(({ command }) => {
-  return {
-    // GitHub Pages serves a project site from /<repository>/ rather than the
-    // domain root. Keep `/` in development so local URLs remain unchanged.
-    base: command === 'build' ? '/traingotbacninh/' : '/',
-    plugins: [react(), tailwindcss()],
-    resolve: {
-      alias: {
-        '@': path.resolve(currentDir, '.'),
-      },
+export default defineConfig(({ command }) => ({
+  // GitHub Pages hosts this site at /traingotbacninh/.
+  // Local development remains available at the domain root.
+  base: command === 'build' ? '/traingotbacninh/' : '/',
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '.'),
     },
-    build: {
-      chunkSizeWarningLimit: 800,
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('three')) {
-                return 'vendor-three';
-              }
-              if (id.includes('lucide-react')) {
-                return 'vendor-lucide';
-              }
-              if (id.includes('react') || id.includes('react-dom')) {
-                return 'vendor-react';
-              }
-            }
-          },
+  },
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/three')) return 'three-vendor';
+          if (id.includes('node_modules/@google/genai')) return 'genai-vendor';
+          if (id.includes('node_modules/lucide-react')) return 'icons-vendor';
         },
       },
     },
-    server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
-    },
-  };
-});
+  },
+  server: {
+    hmr: process.env.DISABLE_HMR !== 'true',
+    watch: process.env.DISABLE_HMR === 'true' ? null : {},
+  },
+}));
